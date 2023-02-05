@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html>
+  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<style>
+table, th, td {
+    border: 1px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+}
+td{
+  width:20px;
+  height:20px;
+}
+</style>
+</head>
+<script>
+$(document).ready(function(){
+
+  $('#main').hide();
+});
+function h(){
+$('#main').toggle();
+
+  $('#btn').hide();
+  start();
+};
+</script>
+<body>
+    <div style="padding-left:25%;">
+      <button id="btn"style="width:800px;height:800px;background-image: url('leying.jpg');" onclick="h()"><h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 100px;">START</h1></button>
+    </div>
+    <div style="background-image: url('snake.jpg')">
+  <div id="score"style="position:absolute;bottom:20px"></div>
+  <div id="score1"style="position:absolute;bottom: 40px"></div>
+<div id="main" style="display:flex;width:96vw;height:96vh;"> 
+  <div class="jumboBanner shadow">
+    <div>
+
+    <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif">Fun Snake</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3 style="font-family: Verdana, Geneva, Tahoma, sans-serif; background-color: rgb(26, 22, 2);color: aliceblue;">黑色蛇用 IJKL</h3> 
+    <br>
+    <h3 style="font-family: Verdana, Geneva, Tahoma, sans-serif; background-color: rgb(255, 217, 0);">黃色蛇用 WASD</h3>
+  </div>
+  </div> 
+
+
+<div style="margin: auto; width: 500px;">
+<table>
+  <tr>
+   <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+    <tr>
+   <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+  </tr>
+  <tr>
+     <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+  <tr>
+ <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+  </tr>
+  <tr>
+  <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+  </tr>
+<tr>
+   <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+    <tr><tr>
+   <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+    <tr><tr>
+   <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+    <tr><tr>
+   <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+    <tr><tr>
+   <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+    <tr><tr>
+   <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+    <tr>
+  <tr>
+   <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+   </tr>
+  <tr>
+ <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+  <tr>
+ <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+   </tr>
+  <tr>
+ <td></td>
+   <td></td>
+   <td></td>
+    <td></td>
+    <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+     <td></td>
+     <td></td>		
+    <td></td>
+  </tr>
+</table>
+</div>
+</div>
+
+</div>
+
+<script>
+
+var x = $("td").width();
+$("td").height(x);
+
+$(window).resize(function() {
+ var x = $("td").width();
+$("td").height(x);
+});
+
+for(i=0;i < $("td").length;i++){
+	var as = $("td")[i];//as會變為plain HTML   <tr>..</tr>
+	$(as).attr('id',i);//所以要再用jquery包起來
+};
+for(k=0;k < $("td").length;k++){
+	var bs= $("td")[k];//as會變為plain HTML   <tr>..</tr>
+	$(bs).attr('id',k);//所以要再用jquery包起來
+};
+//第一條蛇
+var current = 0;
+var direction ="";//一開始的前進方向
+var currentBody=[current];
+var score1 = 0;
+var snackColor ='black';
+//第二條蛇
+var current1 = 239;
+var direction1 ="";//一開始的前進方向
+var currentBody1=[current1];
+var score2 = 0;
+var snackColor1 ='yellow';
+
+var apple = Math.floor((Math.random() * 95) + 1);//產生一個隨機的蘋果
+$("#"+(apple)).css('background','red');//
+
+document.onkeydown = function(key){
+//第二條蛇(運動)
+if (key.code=='KeyA') { 
+	
+	direction ="left";
+	
+
+}else if(key.code=="KeyD"){
+	direction ="right";
+    
+}else if(key.code=="KeyW"){
+	direction ="up";
+
+}else if(key.code=="KeyS"){
+	direction ="down";
+}
+
+//第一條蛇(運動)
+if (key.code=='KeyJ') {
+	direction1 ="left";
+	
+}else if(key.code=="KeyL"){
+	direction1 ="right";
+    
+}else if(key.code=="KeyI"){
+	direction1 ="up";
+
+}else if(key.code=="KeyK"){
+	direction1 ="down";   
+}
+}
+//第一條蛇(顏色)
+for(i=0;i<currentBody.length;i++){//一開始的黑色
+$("#"+currentBody[i]).css('background',snackColor)
+ };
+ //第二條蛇(顏色)
+ for(k=0;k<currentBody1.length;k++){//一開始的黃色
+$("#"+currentBody1[k]).css('background',snackColor1)
+ };
+function start(){
+var starts =  setInterval(function(){
+//第一條蛇(移動)
+ if(direction=="right"){
+
+ 	if(currentBody[0]!=15&&currentBody[0]!=31&&currentBody[0]!=47&&currentBody[0]!=63&&currentBody[0]!=79&&currentBody[0]!=95&&currentBody[0]!=111&&currentBody[0]!=127&&currentBody[0]!=143&&currentBody[0]!=159&&currentBody[0]!=175&&currentBody[0]!=191&&currentBody[0]!=207&&currentBody[0]!=223&&currentBody[0]!=239){
+	
+   current=currentBody[((currentBody.length)-1)];//a[3]為最後一元素但a.length為4，所以減1，current表示蛇陣列的尾巴id，記錄上一輪尾巴的坐標
+
+
+  var last = currentBody[(currentBody.length)-1];//在移動前記錄尾巴元素 
+
+    for(i=(currentBody.length)-1;i>0;i--){///前進時後一個元素id護變為前一個id
+    currentBody[i]=currentBody[i-1]
+    
+    };
+    
+    cc = currentBody.slice(0);
+    delete cc[0];
+    
+    cc.push(last);
+    
+     currentBody[0]+=1;
+
+   if(($.inArray(currentBody[0],cc))!=-1){
+  if(currentBody[0]!=apple){
+    clearInterval(starts);
+    $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+   };
+
+};
+
+$("#"+(current)).css("background","none");
+
+for(i=0;i<currentBody.length;i++){//蛇的陣列元素是黑色
+$("#"+currentBody[i]).css('background',snackColor)
+ };
+
+	if(currentBody[0]==apple){
+   
+	currentBody.push(apple);
+  score1++;
+   console.log("aa");
+  $('#score').html("黑色分數為"+score1);
+  for(;;){//如果蘋果產生在蛇身體上，重新產生蘋果直到不在
+   apple = Math.floor((Math.random() * 95) + 1);
+   if(($.inArray(apple,currentBody))==-1){
+  
+    break;
+   }
+ };
+ $("#"+(apple)).css('background','red');//讓蘋果的位置是紅色
+};
+
+ }else{
+     clearInterval(starts);
+    $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+ 
+ };
+ };
+
+
+ if(direction=="left"){
+ 	if(currentBody[0]!=0&&currentBody[0]!=16&&currentBody[0]!=32&&currentBody[0]!=48&&currentBody[0]!=64&&currentBody[0]!=80&&currentBody[0]!=96&&currentBody[0]!=112&&currentBody[0]!=128&&currentBody[0]!=144&&currentBody[0]!=176&&currentBody[0]!=192&&currentBody[0]!=208&&currentBody[0]!=224){
+
+   current=currentBody[((currentBody.length)-1)];//a[3]為最後一元素但a.length為4，所以減1，current表示蛇陣列的尾巴id，記錄上一輪尾巴的坐標
+
+  var last = currentBody[(currentBody.length)-1];//在移動前記錄尾巴元素
+
+  for(i=(currentBody.length)-1;i>0;i--){///前進時後一個元素id護變為前一個id
+    currentBody[i]=currentBody[i-1]
+    
+    };
+    
+    cc = currentBody.slice(0);
+    delete cc[0];
+    //////////看是否撞到身體，使用var last記錄完後，把頭刪掉加上上次的尾巴
+    cc.push(last);
+    
+     currentBody[0]-=1;
+
+   if(($.inArray(currentBody[0],cc))!=-1){
+  if(currentBody[0]!=apple){
+    clearInterval(starts);
+    $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+   };//////////看是否撞到身體，使用var last記錄完後，把頭刪掉加上上次的尾巴
+
+};
+
+
+
+
+$("#"+(current)).css("background","none");
+
+
+
+for(i=0;i<currentBody.length;i++){//蛇的陣列元素是黑色
+$("#"+currentBody[i]).css('background',snackColor)
+ };
+
+  if(currentBody[0]==apple){
+  currentBody.push(apple);
+  score1++;
+  $('#score').html("黑色分數為"+score1);
+
+  for(;;){//如果蘋果產生在蛇身體上，重新產生蘋果直到不在
+   apple = Math.floor((Math.random() * 95) + 1);
+   if(($.inArray(apple,currentBody))==-1){
+   
+    break;
+   }
+ };
+
+$("#"+(apple)).css('background','red');//讓蘋果的位置是紅色
+  
+    };
+
+
+ }else{
+     clearInterval(starts);
+    $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+ 
+ };
+ };
+ if(direction=="down"){
+ 	if(currentBody[0]!=224&&currentBody[0]!=225&&currentBody[0]!=226&&currentBody[0]!=227&&currentBody[0]!=228&&currentBody[0]!=229&&currentBody[0]!=230&&currentBody[0]!=231&&currentBody[0]!=232&&currentBody[0]!=233&&currentBody[0]!=234&&currentBody[0]!=235&&currentBody[0]!=236&&currentBody[0]!=237&&currentBody[0]!=238&&currentBody[0]!=239){
+
+
+   current=currentBody[((currentBody.length)-1)];//a[3]為最後一元素但a.length為4，所以減1，記錄上一輪尾巴的坐標
+
+ var last = currentBody[(currentBody.length)-1];//在移動前記錄尾巴元素 
+
+
+for(i=(currentBody.length)-1;i>0;i--){///前進時後一個元素id護變為前一個id
+    currentBody[i]=currentBody[i-1]
+    
+    };
+
+   
+    cc = currentBody.slice(0);
+    delete cc[0];
+    
+    cc.push(last);
+    
+     currentBody[0]+=16;
+
+   if(($.inArray(currentBody[0],cc))!=-1){
+  if(currentBody[0]!=apple){
+    clearInterval(starts);
+    $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+   };
+
+};
+
+
+
+$("#"+(current)).css("background","none");
+
+
+
+for(i=0;i<currentBody.length;i++){//蛇的陣列元素是黑色
+$("#"+currentBody[i]).css('background',snackColor)
+ };
+
+
+  if(currentBody[0]==apple){
+  currentBody.push(apple);
+  score1++;
+  $('#score').html("黑色分數為"+score1);
+
+  for(;;){//如果蘋果產生在蛇身體上，重新產生蘋果直到不在
+   apple = Math.floor((Math.random() * 95) + 1);
+   if(($.inArray(apple,currentBody))==-1){
+   
+    break;
+   }
+ };
+
+$("#"+(apple)).css('background','red');//讓蘋果的位置是紅色
+  
+    };
+
+ }else{
+     clearInterval(starts);
+    $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+ 
+ };
+ };
+ if(direction=="up"){
+ 	if(currentBody[0]!=0&&currentBody[0]!=1&&currentBody[0]!=2&&currentBody[0]!=3&&currentBody[0]!=4&&currentBody[0]!=5&&currentBody[0]!=6&&currentBody[0]!=7&&currentBody[0]!=8&&currentBody[0]!=9&&currentBody[0]!=10&&currentBody[0]!=11&&currentBody[0]!=12&&currentBody[0]!=13&&currentBody[0]!=14&&currentBody[0]!=15){
+	
+/////////
+   current=currentBody[((currentBody.length)-1)];//a[3]為最後一元素但a.length為4，所以減1，記錄上一輪尾巴的坐標，讓他變白色
+////////
+
+
+
+ var last = currentBody[(currentBody.length)-1];//在移動前記錄尾巴元素 
+
+
+
+for(i=(currentBody.length)-1;i>0;i--){///前進時後一個元素id護變為前一個id
+    currentBody[i]=currentBody[i-1]
+    
+    };
+ 
+    cc = currentBody.slice(0);
+    delete cc[0];
+    
+    cc.push(last);
+    
+     currentBody[0]-=16;
+
+   if(($.inArray(currentBody[0],cc))!=-1){
+  if(currentBody[0]!=apple){
+    clearInterval(starts);
+    $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+   };
+
+};
+
+
+//////    
+$("#"+(current)).css("background","none");
+
+
+//////
+for(i=0;i<currentBody.length;i++){//蛇的陣列元素是黑色
+$("#"+currentBody[i]).css('background',snackColor)
+ };
+
+
+//////
+  if(currentBody[0]==apple){
+  currentBody.push(apple);
+  score1++;
+  $('#score').html("黑色分數為"+score1);
+
+  for(;;){//如果蘋果產生在蛇身體上，重新產生蘋果直到不在
+   apple = Math.floor((Math.random() * 95) + 1);
+   if(($.inArray(apple,currentBody))==-1){
+    
+    break;
+   }
+ };
+
+$("#"+(apple)).css('background','red');//讓蘋果的位置是紅色
+  
+    };
+//////
+
+ }else{
+     clearInterval(starts);
+    $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+ 
+ };
+ };
+
+
+ //第二條蛇
+ //二左
+ if(direction1=="right"){
+
+if(currentBody1[0]!=15&&currentBody1[0]!=31&&currentBody1[0]!=47&&currentBody1[0]!=63&&currentBody1[0]!=79&&currentBody1[0]!=95&&currentBody1[0]!=111&&currentBody1[0]!=127&&currentBody1[0]!=143&&currentBody1[0]!=159&&currentBody1[0]!=175&&currentBody1[0]!=191&&currentBody1[0]!=207&&currentBody1[0]!=223&&currentBody1[0]!=239){
+
+current1=currentBody1[((currentBody1.length)-1)];//a[3]為最後一元素但a.length為4，所以減1，current表示蛇陣列的尾巴id，記錄上一輪尾巴的坐標
+
+
+var last1 = currentBody1[(currentBody1.length)-1];//在移動前記錄尾巴元素 
+
+ for(k=(currentBody1.length)-1;k>0;k--){///前進時後一個元素id護變為前一個id
+ currentBody1[k]=currentBody1[k-1]
+ 
+ };
+
+ bb = currentBody1.slice(0);
+ delete bb[0];
+ 
+ bb.push(last1);
+ 
+  currentBody1[0]+=1;
+
+if(($.inArray(currentBody1[0],bb))!=-1){
+if(currentBody1[0]!=apple){
+ clearInterval(starts);
+ $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+};
+
+};
+
+$("#"+(current1)).css("background","none");
+
+for(k=0;k<currentBody1.length;k++){//蛇的陣列元素是黃色
+$("#"+currentBody1[k]).css('background',snackColor1)
+};
+
+if(currentBody1[0]==apple){
+
+currentBody1.push(apple);
+score2++;
+console.log("dd");
+$('#score1').html("黃色分數為"+score2);
+for(;;){//如果蘋果產生在蛇身體上，重新產生蘋果直到不在
+apple = Math.floor((Math.random() * 239) + 1);
+if(($.inArray(apple,currentBody1))==-1){
+
+ break;
+}
+};
+$("#"+(apple)).css('background','red');//讓蘋果的位置是紅色
+};
+
+}else{
+  clearInterval(starts);
+ $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+
+};
+};
+//二右
+if(direction1=="left"){
+  if(currentBody1[0]!=0&&currentBody1[0]!=16&&currentBody1[0]!=32&&currentBody1[0]!=48&&currentBody1[0]!=64&&currentBody1[0]!=80&&currentBody1[0]!=96&&currentBody1[0]!=112&&currentBody1[0]!=128&&currentBody1[0]!=144&&currentBody1[0]!=160&&currentBody1[0]!=176&&currentBody1[0]!=192&&currentBody1[0]!=208&&currentBody1[0]!=224){
+
+current1=currentBody1[((currentBody1.length)-1)];//a[3]為最後一元素但a.length為4，所以減1，current表示蛇陣列的尾巴id，記錄上一輪尾巴的坐標
+
+
+var last1 = currentBody1[(currentBody1.length)-1];//在移動前記錄尾巴元素 
+
+ for(k=(currentBody1.length)-1;k>0;k--){///前進時後一個元素id護變為前一個id
+ currentBody1[k]=currentBody1[k-1]
+ 
+ };
+
+ bb = currentBody1.slice(0);
+ delete bb[0];
+ 
+ bb.push(last1);
+ 
+  currentBody1[0]-=1;
+
+if(($.inArray(currentBody1[0],bb))!=-1){
+if(currentBody1[0]!=apple){
+ clearInterval(starts);
+ $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+};
+
+};
+
+$("#"+(current1)).css("background","none");
+
+for(k=0;k<currentBody1.length;k++){//蛇的陣列元素是黃色
+$("#"+currentBody1[k]).css('background',snackColor1)
+};
+
+if(currentBody1[0]==apple){
+
+currentBody1.push(apple);
+score2++;
+console.log("dd");
+$('#score1').html("黃色分數為"+score2);
+for(;;){//如果蘋果產生在蛇身體上，重新產生蘋果直到不在
+apple = Math.floor((Math.random() * 239) + 1);
+if(($.inArray(apple,currentBody1))==-1){
+
+ break;
+}
+};
+$("#"+(apple)).css('background','red');//讓蘋果的位置是紅色
+};
+
+}else{
+  clearInterval(starts);
+ $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+
+};
+};
+//二下
+if(direction1=="down"){
+
+if(currentBody1[0]!=225&&currentBody1[0]!=226&&currentBody1[0]!=227&&currentBody1[0]!=228&&currentBody1[0]!=229&currentBody1[0]!=230&&currentBody1[0]!=231&&currentBody1[0]!=232&&currentBody1[0]!=233&&currentBody1[0]!=234&&currentBody1[0]!=235&&currentBody1[0]!=236&&currentBody1[0]!=237&&currentBody1[0]!=238&&currentBody1[0]!=239){
+
+current1=currentBody1[((currentBody1.length)-1)];//a[3]為最後一元素但a.length為4，所以減1，current表示蛇陣列的尾巴id，記錄上一輪尾巴的坐標
+
+var last1 = currentBody1[(currentBody1.length)-1];//在移動前記錄尾巴元素 
+
+ for(k=(currentBody1.length)-1;k>0;k--){///前進時後一個元素id護變為前一個id
+ currentBody1[k]=currentBody1[k-1]
+ 
+ };
+
+ bb = currentBody1.slice(0);
+ delete bb[0];
+ 
+ bb.push(last1);
+ 
+  currentBody1[0]+=16;
+
+if(($.inArray(currentBody1[0],bb))!=-1){
+if(currentBody1[0]!=apple){
+ clearInterval(starts);
+ $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+};
+
+};
+
+$("#"+(current1)).css("background","none");
+
+for(k=0;k<currentBody1.length;k++){//蛇的陣列元素是黃色
+$("#"+currentBody1[k]).css('background',snackColor1)
+};
+
+if(currentBody1[0]==apple){
+
+currentBody1.push(apple);
+score2++;
+console.log("dd");
+$('#score1').html("黃色分數為"+score2);
+for(;;){//如果蘋果產生在蛇身體上，重新產生蘋果直到不在
+apple = Math.floor((Math.random() * 239) + 1);
+if(($.inArray(apple,currentBody1))==-1){
+
+ break;
+}
+};
+$("#"+(apple)).css('background','red');//讓蘋果的位置是紅色
+};
+
+}else{
+  clearInterval(starts);
+ $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+
+};
+};
+//二上
+if(direction1=="up"){
+
+if(currentBody1[0]!=0&&currentBody1[0]!=1&&currentBody1[0]!=2&&currentBody1[0]!=3&&currentBody1[0]!=4&&currentBody1[0]!=5&&currentBody1[0]!=6&&currentBody1[0]!=7&&currentBody1[0]!=8&&currentBody1[0]!=9&&currentBody1[0]!=10&&currentBody1[0]!=11&&currentBody1[0]!=12&&currentBody1[0]!=13&&currentBody1[0]!=14&&currentBody1[0]!=15){
+
+current1=currentBody1[((currentBody1.length)-1)];//a[3]為最後一元素但a.length為4，所以減1，current表示蛇陣列的尾巴id，記錄上一輪尾巴的坐標
+
+
+var last1 = currentBody1[(currentBody1.length)-1];//在移動前記錄尾巴元素 
+
+ for(k=(currentBody1.length)-1;k>0;k--){///前進時後一個元素id護變為前一個id
+ currentBody1[k]=currentBody1[k-1]
+ 
+ };
+
+ bb = currentBody1.slice(0);
+ delete bb[0];
+ 
+ bb.push(last1);
+ 
+  currentBody1[0]-=16;
+
+if(($.inArray(currentBody1[0],bb))!=-1){
+if(currentBody1[0]!=apple){
+ clearInterval(starts);
+ $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+};
+
+};
+
+$("#"+(current1)).css("background","none");
+
+for(k=0;k<currentBody1.length;k++){//蛇的陣列元素是黃色
+$("#"+currentBody1[k]).css('background',snackColor1)
+};
+
+if(currentBody1[0]==apple){
+
+currentBody1.push(apple);
+score2++;
+console.log("dd");
+$('#score1').html("黃色分數為"+score2);
+for(;;){//如果蘋果產生在蛇身體上，重新產生蘋果直到不在
+apple = Math.floor((Math.random() * 239) + 1);
+if(($.inArray(apple,currentBody1))==-1){
+
+ break;
+}
+};
+$("#"+(apple)).css('background','red');//讓蘋果的位置是紅色
+};
+
+}else{
+  clearInterval(starts);
+ $('body').html("遊戲結束"+"黑色"+score1+";黃色"+score2);
+
+};
+};
+
+},300);
+};
+
+
+
+
+
+
+</script>
+
+</body>
+
+
+
+</html>
